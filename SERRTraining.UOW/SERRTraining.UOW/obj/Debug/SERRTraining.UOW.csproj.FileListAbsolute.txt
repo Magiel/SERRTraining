@@ -1,0 +1,6 @@
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\bin\Debug\SERRTraining.UOW.dll
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\bin\Debug\SERRTraining.UOW.pdb
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\obj\Debug\SERRTraining.UOW.csproj.AssemblyReference.cache
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\obj\Debug\SERRTraining.UOW.csproj.CoreCompileInputs.cache
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\obj\Debug\SERRTraining.UOW.dll
+E:\SERR Git\SERR Training\SERRTraining\SERRTraining.UOW\SERRTraining.UOW\obj\Debug\SERRTraining.UOW.pdb

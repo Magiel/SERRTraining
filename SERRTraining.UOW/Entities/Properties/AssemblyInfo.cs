@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SERRTraining.UOW")]
-[assembly: AssemblyDescription("SERR Training Unit of Work")]
+[assembly: AssemblyTitle("Entities")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SERR Synergy")]
-[assembly: AssemblyProduct("SERRTraining.UOW")]
-[assembly: AssemblyCopyright("Copyright © 2022 SERR Synergy")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Entities")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f906096f-8bb5-4e5c-afc8-5bada3b57ff3")]
+[assembly: Guid("c21a8533-612f-40fe-b93a-8058882b2e82")]
 
 // Version information for an assembly consists of the following four values:
 //
