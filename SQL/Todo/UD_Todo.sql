@@ -1,0 +1,23 @@
+
+IF(OBJECT_ID('dbo.UD_Todo') IS NOT NULL)
+	BEGIN
+		DROP PROCEDURE dbo.UD_Todo
+	END
+GO
+
+CREATE PROCEDURE dbo.UD_Todo 
+
+(
+    @TodoID INT
+)
+
+AS
+ 
+SET NOCOUNT ON
+
+UPDATE Todo SET
+	IsActive = 0
+WHERE TodoID = @TodoID
+
+SET NOCOUNT OFF
+GO

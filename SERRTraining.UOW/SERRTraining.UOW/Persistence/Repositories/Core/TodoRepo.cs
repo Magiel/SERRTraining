@@ -1,12 +1,9 @@
 ﻿using Dapper;
 using Entities.Core;
 using SERRTraining.UOW.Core.Repositories.Core;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SERRTraining.UOW.Persistence.Repositories.Core
 {
@@ -21,7 +18,6 @@ namespace SERRTraining.UOW.Persistence.Repositories.Core
 
             DynamicParameters parms = new DynamicParameters();
             parms.AddDynamicParams(parameters);
-
             parms.Add("@RowID", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
             using (var trans = Connection.BeginTransaction())
@@ -36,28 +32,65 @@ namespace SERRTraining.UOW.Persistence.Repositories.Core
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            DynamicParameters parms = new DynamicParameters();
+            parms.Add("@TodoID", dbType: DbType.Int32, direction: ParameterDirection.Input, value: id);
+
+            using (var trans = Connection.BeginTransaction())
+            {
+                Connection.Execute("UD_Todo", parms, commandType: CommandType.StoredProcedure, transaction: trans);
+                trans.Commit();
+            }
         }
 
         public Todo Get(int id)
         {
-            throw new NotImplementedException();
+            DynamicParameters parms = new DynamicParameters();
+            parms.Add("@TodoID", dbType: DbType.Int32, direction: ParameterDirection.Input, value: id);
+
+            using (var trans = Connection.BeginTransaction())
+            {
+                return Connection.Query<Todo>("US_TodoByID", parms, trans, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
         }
 
         public List<Todo> GetAll()
         {
-            throw new NotImplementedException();
+            using (var trans = Connection.BeginTransaction())
+            {
+                return Connection.Query<Todo>("US_TodoAll", null, trans, commandType: CommandType.StoredProcedure).AsList();
+            }
         }
 
         public void Update(Todo model)
         {
-            throw new NotImplementedException();
+            var parameters = (object)MappingUpdate(model);
+
+            DynamicParameters parms = new DynamicParameters();
+            parms.AddDynamicParams(parameters);
+
+            using (var trans = Connection.BeginTransaction())
+            {
+                Connection.Execute("UU_Todo", parms, commandType: CommandType.StoredProcedure, transaction: trans);
+                trans.Commit();
+            }
         }
 
         internal dynamic MappingInsert(Todo t)
         {
             return new
             {
+                t.UserID,
+                t.TodoTypeID,
+                t.DueDate,
+                t.Comment
+            };
+        }
+
+        internal dynamic MappingUpdate(Todo t)
+        {
+            return new
+            {
+                t.TodoID,
                 t.UserID,
                 t.TodoTypeID,
                 t.DueDate,
