@@ -1,15 +1,11 @@
 
-IF(OBJECT_ID('dbo.US_TodoByID') IS NOT NULL)
+IF(OBJECT_ID('dbo.US_TodoAll') IS NOT NULL)
 	BEGIN
-		DROP PROCEDURE dbo.US_TodoByID
+		DROP PROCEDURE dbo.US_TodoAll
 	END
 GO
 
-CREATE PROCEDURE dbo.US_TodoByID 
-
-(
-    @TodoID INT
-)
+CREATE PROCEDURE dbo.US_TodoAll 
 
 AS
  
@@ -24,7 +20,7 @@ SELECT
 	DateFlag,
 	IsActive
 FROM Todo
-WHERE TodoID = @TodoID
+WHERE IsActive = 1
 
 SET NOCOUNT OFF
 GO

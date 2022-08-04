@@ -1,0 +1,21 @@
+
+IF(OBJECT_ID('dbo.US_TodoType') IS NOT NULL)
+	BEGIN
+		DROP PROCEDURE dbo.US_TodoType
+	END
+GO
+
+CREATE PROCEDURE dbo.US_TodoType 
+
+
+AS
+ 
+SET NOCOUNT ON
+ 
+SELECT
+	TodoTypeID AS ID,
+	TodoTypeName AS Reference
+FROM TodoType
+
+SET NOCOUNT OFF
+GO
